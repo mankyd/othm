@@ -1,0 +1,24 @@
+AUTHOR = 'dave'
+
+DEFAULT_DATE_FORMAT = '%b %d, %Y'
+#DEFAULT_PAGINATION = 2
+DELETE_OUTPUT_DIRECTORY = True
+FILES_TO_COPY = [('favicon.ico', 'favicon.ico')]
+MARKUP = ('rst', 'md', 'html')
+#OUTPUT_PATH = '/usr/share/nginx/www'
+SITENAME = 'Oh! The Huge Manatee!'
+SITEURL = 'http://ohthehugemanatee.net'
+SUMMARY_MAX_LENGTH = None
+THEME = 'themes/othm'
+#THEME = 'notmyidea'
+TIMEZONE = 'US/Eastern'
+
+ARTICLE_SAVE_AS = '{date:%Y/%m}/{slug}/index.html'
+ARTICLE_URL = '{date:%Y/%m}/{slug}/'
+ARTICLE_LANG_URL = '{slug}-{lang}/'
+PAGE_URL = 'pages/{slug}/'
+PAGE_LANG_URL = 'pages/{slug}-{lang}/'
+TAG_URL = 'tag/{name}/'
+TAG_SAVE_AS = 'tag/{name}/index.html'
+
+

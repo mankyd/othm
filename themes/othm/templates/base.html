@@ -1,0 +1,41 @@
+{% set static_url = '/theme/' %}
+
+{% macro box(classes) %}
+<div class="box {{ classes }}"><div class="head"><div class="inner"></div></div><div class="body"><div class="inner">{{ caller() }}</div></div><div class="foot"><div class="inner"></div></div></div>
+{% endmacro %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
+        <link href="{{ static_url }}css/undohtml.css" type="text/css" rel="stylesheet" />
+        <link href="{{ static_url }}css/main.css" type="text/css" rel="stylesheet" />
+        <script type="text/javascript">var MEDIA_URL = '{{MEDIA_URL}}';</script>
+        <link rel="shortcut icon" href="/favicon.ico" /> 
+        <meta name="google-site-verification" content="FybNnk5RBcNO3FS5VuEBDYo_cgZOZeJ4-amoVjnPVgE" />
+        {% block head %}{% endblock %}
+    </head>
+    <body>
+        <div class="header">
+            <h1 class="inner-header">
+                <a class="logo" href="/" title="Take me home, Jeeves!">
+                    <img src="{{ static_url }}images/logo.png" alt="{{ SITENAME }}" />
+                </a>
+                <img src="{{ static_url }}images/manatee.png" class="subtitle" alt="The manatee watches..."/>
+            </h1>
+        </div>
+        {% block top %}{% endblock %}
+        {% block content %}{% endblock %}
+        <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+            try {
+                var pageTracker = _gat._getTracker("UA-9541118-1");
+                pageTracker._trackPageview();
+            } catch(err) {}
+        </script>
+        <script src="{{ static_url }}js/prototype.js" type="text/javascript"></script>
+        <script src="{{ static_url }}js/behavior.js" type="text/javascript" ></script> 
+        {% block bottom %}{% endblock %}
+    </body>
+</html>

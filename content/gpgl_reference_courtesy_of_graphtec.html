@@ -1,0 +1,328 @@
+<head>
+    <title>GPGL Reference, Courtesy of Graphtec</title>
+    <meta name="keywords" contents="hpgl, plotter, silhouette, gpgl" />
+    <meta name="date" contents="2011-07-23" />
+</head>
+<body>
+    <p>I recently purchased as <a href="http://en.wikipedia.org/wiki/Plotter#Vinyl_Sign_Cutter" title="cutting plotter">cutting plotter</a> for myself as a fun toy to play with. In particular, I picked up <a href="http://graphtecamerica.com" title="GraphTec">Graphtec's</a> <a href="http://www.silhouetteamerica.com/" title="Silhouette Cutting Plotter">Silhouette</a> machine from <a href="http://uscutter.com/" title="US Cutter">US Cutter</a> for a very reasonable price.</p>
+<!-- PELICAN_END_SUMMARY -->
+    <p>Now, being the computer nerd that I am, one of my first inclinations, after seeing the device in action, was wondering how I could control the device directly myself. That is to say, I didn't want to have to import my files into the Silhouette Studio software for every drawing I wanted to make; in particular because I run Linux on my personal desktop, and there is no Linux version of the software available.</p>
+
+    <p>After a short bit of research, I discovered that the device communicates via Graphtec's proprietary "GPGL" language, (it stands for Graphtec Plotter Graphics Language, I believe). This is in contrast with the more common <a href="http://en.wikipedia.org/wiki/HPGL" title="HPGL">HPGL</a> specification found in many other plotters. I did a significant amount of searching on the matter, but came up empty handed when it came to GPGL references. I read some sites that suggested that the Silhouette also communicated via HPGL, but my tests with that came up largely empty.</p>
+
+    <p>So, I sent a kindly worded email to Graphtec support asking if they could provide a reference directly. I didn't expect a response back and had resigned myself to the tribulations of USB sniffing. I spent the day, in between work, investigating how to perform USB packet logging on both <a href="http://developer.apple.com/hardwaredrivers/download/usbdebug.html" title="OS X USB Debugging Tools">OS X</a> and <a href="http://www.pcausa.com/Utilities/UsbSnoop/" title="Windows USB Packet Logging">Windows</a> (hint: use Windows).</p>
+
+    <p>And then, just when I was about to really dive in and start doing it the hard way, Graphtec came through for me. A wonderful gentleman named Neil emailed me back:
+    </p>
+    <blockquote>Hi Dave,
+
+        Thank you for your interest in Graphtec products.  I have attached the HPGL and GPGL command sets found in Graphtec cutters for your reference. The reference documents are provided "as is" and we cannot provide additional assistance.  I wish you good luck with your endeavor.
+
+        Best regards,
+        Neil</blockquote>
+
+    <p>
+        Here are the documents he sent:
+        <ul>
+            <li><a href="http://static.ohthehugemanatee.net/uploads/2011-07-23/HP-GL.pdf" title="Graphtec HPGL Reference">Graphtec HPGL Reference</a></li>
+            <li><a href="http://static.ohthehugemanatee.net/uploads/2011-07-23/GP-GL.pdf" title="Graphtec GPGL Reference">Graphtec GPGL Reference</a></li>
+        </ul>
+    </p>
+
+    <p>Just like that, I had what I needed! I may or may not have responded back to Neil with professions of love and adulation. I also asked for some quick clarification on one, undocumented point: how does one switch the plotter between GPGL and HPGL mode? He promptly responded back:</p>
+
+    <blockquote>My understanding is that the newer Graphtec  FC8000 have the capability to autoswitch  when they receive either GPGL or HPGL commands, but previous cutters such as the CE5000-40 (Craft Robo Pro) require the user to change the command language from the front panel to match incoming data.</blockquote>
+
+    <p>The Silhouette does not have an option to manually switch between the two specifications, and in my testing, it does not seem as though the Silhouette automatically switches into HPGL mode either (perhaps someone can correct me on this). That being said, it does seem to be responding to GPGL commands.</p>
+
+    <p>I am still feeling my way around the spec a bit &mdash; the Silhouette is not responding to every command documented in the pdf, and some combinations of commands seem to cause the Silhouette to stop responding. I suspect part of this may be due to my naivety when it comes to <a href="http://pyusb.sourceforge.net/docs/1.0/tutorial.html" title="pyUSB">USB programming</a> in general, something I am new at.</p>
+
+    <p>To help confirm this, I installed a USB sniffer on my wife's Windows computer, along with with Silhouette Studio software. I had the plotter draw out two simple lines, each about the length of the page. Here is the primary data payload that I saw sent back and forth (in hex):</p>
+
+    <code>03 21 31 30 2c 30 03 54 54 03 48 03 54 42 35 30
+        2c 31 03 54 42 35 30 2c 30 03 46 43 30 03 54 42
+        39 39 03 46 4d 31 03 54 42 35 30 2c 31 03 46 4f
+        35 35 38 37 03 26 31 30 30 2c 31 30 30 2c 31 30
+        30 03 5c 33 30 2c 33 30 03 5a 34 31 32 30 2c 35
+        35 35 38 03 46 58 31 30 2c 30 03 4c 30 03 4d 35
+        30 38 2c 35 39 35 03 44 39 33 33 2c 34 31 36 39
+        03 4d 32 38 35 31 2c 34 35 30 34 03 44 33 38 35
+        36 2c 34 39 36 03 26 31 2c 31 2c 31 03 54 42 35
+        30 2c 30 03 46 4f 30 03 48 03 03</code>
+
+    <p>This can be converted into ASCII as:</p>
+    <code>\x03!10,0\x03TT\x03H\x03TB50\x031\x03TB50,0\x03FC0\x03TB99\x03FM1\x03TB50,1\x03FO5587\x03&100,100,100\x03\\30,30\x03Z4120,5558\x03FX10,0\x03L0\x03M508,595\x03D933,4169\x03M2851,4504\x03D3856,496\x03&1,1,1\x03TB50,0\x03FO0\x03H\x03\x03</code>
+
+    <p>The first thing I noticed was that the software was sending ASCII character 3, (end of text) instead of semicolons. Then, I looked for the commands that would have drawn the two lines. They are buried  in there as "M508,595;D933,4169;M2851,4504;D3856,496;" (semicolons substituted for EOT). Everything else is setup and teardown for the process. I am still working to decipher the exact meaning of some of the commands: things like "TT;", "TB50,0;", "FM1;", "\\30,30;", and "FO0;" are not listed in the provided documentation, and other commands, such as "Z4120,5588;"and "&100,100,100;" do not convey their meaning well to me (I think Z specifies the overall page size).</p>
+
+    <p>So, I still have some more tinkering to do, but at least I have an awesome starting point! I thought I should share what I have so that others can find it in the future. Here is a table of all the GPGL commands for quick searching and reference:</p>
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>Command</th>
+                <th>Description</th>
+                <th>Format</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>D</td>
+                <td>Draw</td>
+                <td>Dx1,y1,x2,y2,...xn,yn[t]</td>
+            </tr>
+            <tr>
+                <td>E</td>
+                <td>Relative Draw</td>
+                <td>Ex1,y1,x2,y2,...xn,yn[t]</td>
+            </tr>
+            <tr>
+                <td>M</td>
+                <td>Move</td>
+                <td>Mx,y</td>
+            </tr>
+            <tr>
+                <td>O</td>
+                <td>Relative Move</td>
+                <td>Ox,y</td>
+            </tr>
+            <tr>
+                <td>MP</td>
+                <td>Move Polar</td>
+                <td>MPr,&theta;[t]</td>
+            </tr>
+            <tr>
+                <td>DP</td>
+                <td>Draw Polar</td>
+                <td>DPr1,&theta;1,r2,&theta;2,...rn,&theta;n[t]</td>
+            </tr>
+            <tr>
+                <td>EP</td>
+                <td>Relative Draw Polar</td>
+                <td>EPr1,&theta;1t</td>
+            </tr>
+            <tr>
+                <td>OP</td>
+                <td>Relative Move Polar</td>
+                <td>MPr1,&theta;1t</td>
+            </tr>
+            <tr>
+                <td>RP</td>
+                <td>Radius Plot</td>
+                <td>RP&theta;,l1,l2</td>
+            </tr>
+            <tr>
+                <td>L</td>
+                <td>Line Type</td>
+                <td>Lp</td>
+            </tr>
+            <tr>
+                <td>B</td>
+                <td>Line Scale</td>
+                <td>Bl</td>
+            </tr>
+            <tr>
+                <td>$</td>
+                <td>Font</td>
+                <td>$n,(m)</td>
+            </tr>
+            <tr>
+                <td>S</td>
+                <td>Alpha Scale</td>
+                <td>Sn,(m)</td>
+            </tr>
+            <tr>
+                <td>Q</td>
+                <td>Alpha Space</td>
+                <td>Ql(k)</td>
+            </tr>
+            <tr>
+                <td>R</td>
+                <td>Alpha Rotate</td>
+                <td>R&theta;</td>
+            </tr>
+            <tr>
+                <td>I</td>
+                <td>Alpha Italic</td>
+                <td>Ip</td>
+            </tr>
+            <tr>
+                <td>LP</td>
+                <td>Label Position</td>
+                <td>LPn[t]</td>
+            </tr>
+            <tr>
+                <td>A</td>
+                <td>Alpha Reset</td>
+                <td>A</td>
+            </tr>
+            <tr>
+                <td>RC</td>
+                <td>Replot Character</td>
+                <td>RCc,x1,y1,[P,]x2,y2,[P1,]...xn,yn[t]</td>
+            </tr>
+            <tr>
+                <td>H</td>
+                <td>Home</td>
+                <td>H</td>
+            </tr>
+            <tr>
+                <td>^</td>
+                <td>Offset</td>
+                <td>^x,y</td>
+            </tr>
+            <tr>
+                <td>^P</td>
+                <td>Offset Polar</td>
+                <td>^Px,y[,&theta;degrees[f][t]]</td>
+            </tr>
+            <tr>
+                <td>J</td>
+                <td>New Pen</td>
+                <td>Jn,(m)</td>
+            </tr>
+            <tr>
+                <td>!</td>
+                <td>Speed</td>
+                <td>!l[,n][t]</td>
+            </tr>
+            <tr>
+                <td>*</td>
+                <td>Pen Acceleration &amp; Force</td>
+                <td>*a,f[,n][t]</td>
+            </tr>
+            <tr>
+                <td>FC</td>
+                <td>Cutter Offset</td>
+                <td>FCp,q[,n][t]</td>
+            </tr>
+            <tr>
+                <td>FD</td>
+                <td>Blade Rotation Control</td>
+                <td>FD&theta;[t]</td>
+            </tr>
+            <tr>
+                <td>\</td>
+                <td>Write Lower Left</td>
+                <td>\x,y</td>
+            </tr>
+            <tr>
+                <td>Z</td>
+                <td>Write Upper Right</td>
+                <td>Zx,y</td>
+            </tr>
+            <tr>
+                <td>/</td>
+                <td>Rotate</td>
+                <td>/x,y,&theta;</td>
+            </tr>
+            <tr>
+                <td>&gt;</td>
+                <td>Clipping</td>
+                <td>&gt;x1,y1,x2,y2,...xn,yn[t]</td>
+            </tr>
+            <tr>
+                <td>&amp;</td>
+                <td>Factor</td>
+                <td>&amp;p,q,r</td>
+            </tr>
+            <tr>
+                <td>SO</td>
+                <td>Set Origin</td>
+                <td>SOn</td>
+            </tr>
+            <tr>
+                <td>T</td>
+                <td>Buzzer</td>
+                <td>Tn</td>
+            </tr>
+            <tr>
+                <td>F</td>
+                <td>Chart Feed</td>
+                <td>Fl[t]</td>
+            </tr>
+            <tr>
+                <td>G</td>
+                <td>Gin</td>
+                <td>G</td>
+            </tr>
+            <tr>
+                <td>C</td>
+                <td>Call Gin</td>
+                <td>C</td>
+            </tr>
+            <tr>
+                <td>?</td>
+                <td>Read Offset</td>
+                <td>?</td>
+            </tr>
+            <tr>
+                <td>[</td>
+                <td>Read Lower Left</td>
+                <td>[</td>
+            </tr>
+            <tr>
+                <td>U</td>
+                <td>Read Upper Right</td>
+                <td>U</td>
+            </tr>
+            <tr>
+                <td>V</td>
+                <td>Read Status Word1</td>
+                <td>V</td>
+            </tr>
+            <tr>
+                <td>@</td>
+                <td>Read Status Word2</td>
+                <td>@</td>
+            </tr>
+            <tr>
+                <td>#</td>
+                <td>Read Status Word3</td>
+                <td>#</td>
+            </tr>
+            <tr>
+                <td>=</td>
+                <td>Term</td>
+                <td>=t1,t2</td>
+            </tr>
+            <tr>
+                <td>"</td>
+                <td>Error Mask</td>
+                <td>"m</td>
+            </tr>
+            <tr>
+                <td>:</td>
+                <td>Clear</td>
+                <td>:</td>
+            </tr>
+            <tr>
+                <td>;</td>
+                <td>Interface Clear</td>
+                <td>;</td>
+            </tr>
+            <tr>
+                <td>BS</td>
+                <td>Buffer Size</td>
+                <td>BSs1,s2,s3,s4</td>
+            </tr>
+            <tr>
+                <td>X</td>
+                <td>Axis</td>
+                <td>Xp,q,r[,t1,t2][t]</td>
+            </tr>
+            <tr>
+                <td rowspan="3">%</td>
+                <td rowspan="3">Hatching</td>
+                <td>%n,x,y,d,&theta;[t]<br />(n=1...3)</td>
+            </tr>
+            <tr>
+                <td>%n,r1,r2,&theta;1,&theta;2,d,&theta;[t]<br />(n=11...13)</td>
+            </tr>
+            <tr>
+                <td>%n,d,&theta;,x1,y1,...xn,yn[t]<br />(n=21..23)</td>
+            </tr>
+        </tbody>
+    </table>
+</body>

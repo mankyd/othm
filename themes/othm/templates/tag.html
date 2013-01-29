@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% from 'base.html' import box %}
+{% block content %}
+{% include 'projects.html' %}
+{% include 'tags.html' %}
+<section class="articles">
+    {% for article in articles_page.object_list %}
+    {% call box('article') %}
+    <h2>
+        <a href="{{ SITEURL }}/{{article.url}}" title="{{article.title}}">{{article.title}}</a>
+        <span class="publication-date">{{ article.locale_date }}</span>
+    </h2>
+    <div class="body">
+        {{article.content }}
+    </div>
+    <div class="meta">
+        {% if article.tags %}
+        <div class="tags">
+            <h3>tags</h3>
+            <ul>
+                {% for tag in article.tags %}
+                <li><a href="{{ SITEURL }}{{ tag.url }}" title="{{ tag }}">{{ tag }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+    {% endcall %}
+    {% endfor %}
+{% include 'pagination.html' %}
+</section><!-- /#content -->
+{% endblock content %}
