@@ -1,16 +1,15 @@
 AUTHOR = 'dave'
 
 DEFAULT_DATE_FORMAT = '%b %d, %Y'
-#DEFAULT_PAGINATION = 2
+DEFAULT_ORPHANS = 3
 DELETE_OUTPUT_DIRECTORY = True
 FILES_TO_COPY = [('favicon.ico', 'favicon.ico')]
 MARKUP = ('rst', 'md', 'html')
-#OUTPUT_PATH = '/usr/share/nginx/www'
+OUTPUT_PATH = 'output/'
 SITENAME = 'Oh! The Huge Manatee!'
 SITEURL = 'http://ohthehugemanatee.net'
 SUMMARY_MAX_LENGTH = None
 THEME = 'themes/othm'
-#THEME = 'notmyidea'
 TIMEZONE = 'US/Eastern'
 
 ARTICLE_SAVE_AS = '{date:%Y/%m}/{slug}/index.html'
