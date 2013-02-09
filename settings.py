@@ -5,10 +5,12 @@ DEFAULT_ORPHANS = 3
 DELETE_OUTPUT_DIRECTORY = True
 FILES_TO_COPY = [
     ('favicon.ico', 'favicon.ico'),
+    ('word-o-matic/word-o-matic.html', 'word-o-matic.html'),
 #    ('uploads/*', 'uploads/'),
 ]
 MARKUP = ('rst', 'md', 'html')
 OUTPUT_PATH = 'output/'
+ARTICLE_DIR = 'articles'
 PATH = 'content/'
 SITENAME = 'Oh! The Huge Manatee!'
 SITEURL = 'http://ohthehugemanatee.net'
