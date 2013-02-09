@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Word-o-Matic</title>
+        <link href="/theme/css/undohtml.css" type="text/css" rel="stylesheet" />
+        <link href="/theme/css/main.css" type="text/css" rel="stylesheet" />
+        <!--<script type="text/javascript">var MEDIA_URL = '';</script>-->
+        <link rel="shortcut icon" href="/favicon.ico" />
+	<meta name="description" content="The WordOMatic is a random word generator that uses your input to create words." />
+	<meta name="keywords" content="wordomatic,random words, word, text, markov, statistics, random, fun" />
+    </head>
+    <body class="word-o-matic">
+        <div class="header">
+            <h1 class="inner-header">
+                <a class="logo" href="/" title="Take me home, Jeeves!">
+                    <img src="/theme/images/logo.png" alt="Oh! The Huge Manatee!" />
+                </a>
+                <img src="/theme/images/manatee.png" class="subtitle" alt="The manatee watches..."/>
+            </h1>
+        </div>
+        
+        
+
+
+<div class="box instructions"><div class="head"><div class="inner"></div></div><div class="body"><div class="inner">
+<h1>The Magical Word-o-Matic</h1>
+<p>
+    The tool at the left combines together <!--{% if preset %}{{preset.description}}{% else %}-->
+    words you supply<!--{% endif %}--> to create new, similar words automatically. 
+    It does this by analyzing provided source text using statistics and 
+    recombining letters from the source to come up with an altogether new word.
+</p>
+<p>
+    <!--{% if preset %}
+    We've already filled in some source text for you. Click "+ show source" to view it. 
+    You are free to edit or replace this text with your own.
+    {% else %}
+    -->
+    Try copying and pasting text from pages you find on the web.
+    <!-- {% endif %}-->
+    Everytime you click 'Generate' a new word will come out. Text that contains similar 
+    sounding words or words that are spelled in similar ways tend to work well. The 
+    more text you enter, the more unique the result will be.
+</p>
+<p>
+    If you're at all interested in the technical wizardy thats at work here, you can 
+    read the <a href="http://ohthehugemanatee.net/article/7/">quick write up that I did</a>.
+</p>
+<p>
+    <a class="addthis_button" href="http://www.addthis.com/bookmark.php?v=250&amp;pub=xa-4aea6b9039b77586"><img src="http://s7.addthis.com/static/btn/v2/lg-share-en.gif" width="125" height="16" alt="Bookmark and Share" style="border:0"/></a><script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pub=xa-4aea6b9039b77586"></script>
+</p>
+</div></div><div class="foot"><div class="inner"></div></div></div>
+
+
+
+<section class="articles">
+    
+    
+<div class="box results"><div class="head"><div class="inner"></div></div><div class="body"><div class="inner">
+    Your Word: <span class="result none">Enter some text then click "Generate"</span>
+    <div class="previous-words" style="display: none;"><h2>Previous Words:</h2> <ul></ul></div>    
+</div></div><div class="foot"><div class="inner"></div></div></div>
+   
+<div class="box"><div class="head"><div class="inner"></div></div><div class="body"><div class="inner">
+<form method="post" action="/word-o-matic-test/store" onsubmit="return false;" class="clearfix">
+    
+    <div class="input">
+        <label for="input">Input Text:</label>
+        <textarea name="input" class="input" id="input"></textarea>
+    </div>
+    <button class="save">Save Input</button>
+    <button class="generate">Generate</button>
+    <div class="save-form" style="display: none;">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" class="title default" value="Enter a title then click &quot;Save!&quot;">
+        <input type="submit" class="submit" value="Save!">
+    </div>
+</form>
+</div></div><div class="foot"><div class="inner"></div></div></div>
+
+    
+    
+<div class="box presets"><div class="head"><div class="inner"></div></div><div class="body"><div class="inner">
+<h2>Awesome Presets:</h2>
+<ul>
+    <li><a href="/word-o-matic/bible-names/" title="Names of the Bible">Biblical Names</a></li>
+    <li><a href="/word-o-matic/buzzwords/" title="Business Buzzwords">Buzzwords</a></li>
+    <li><a href="/word-o-matic/computer-companies/" title="Computer Company Names">Computer Companies</a></li>
+    <li><a href="/word-o-matic/countries/" title="Country Names">Countries</a></li>
+    <li><a href="/word-o-matic/declaration-of-independence/" title="United States Declaration of Independence">Declaration of Independence</a></li>
+    <li><a href="/word-o-matic/dinosaurs/" title="Dinosaur Names">Dinosaurs</a></li>
+    <li><a href="/word-o-matic/greek-heroes/" title="Characters from the Illiad">Homeric Heros</a></li>
+    <li><a href="/word-o-matic/jabberwocky/" title="Text from Lewis Carroll's Jabberwocky">Jabberwocky</a></li>
+    <li><a href="/word-o-matic/norse-gods/" title="Names of Norse Gods">Norse Gods</a></li>
+    <li><a href="/word-o-matic/organic-chemicals/" title="Names of Organic Chemicals">Organic Chemicals</a></li>
+    <li><a href="/word-o-matic/phobias/" title="Names of the Fears &amp; Phobias">Phobias</a>
+    </li><li><a href="/word-o-matic/pokemon/" title="Names of the Pokemon Characters">Pokemon</a>
+    </li><li><a href="/word-o-matic/prescription-drugs/" title="Names of the Common Prescription Drugs">Prescription Drugs</a>
+    </li><li><a href="/word-o-matic/rock-bands/" title="Names of the Popular Rock Bands">Rock Bands</a></li>
+    <li><a href="/word-o-matic/theorems/" title="Names of Theorems">Theorems</a></li>
+    <li><a href="/word-o-matic/star-wars/" title="Names of the Star Wars Characters">Star Wars</a></li>
+    <li><a href="/word-o-matic/us-states/" title="Names of the US States">US States</a></li>
+    <li><a href="/word-o-matic/wood-working/" title="Wood Working Tools and Machinery">Wood Working</a></li>
+</ul>
+</div></div><div class="foot"><div class="inner"></div></div></div>
+
+    
+    
+
+</section><!-- /#content -->
+
+<!--        <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+            try {
+                var pageTracker = _gat._getTracker("UA-9541118-1");
+                pageTracker._trackPageview();
+            } catch(err) {}
+        </script>
+-->
+        <script src="/theme/js/prototype.js" type="text/javascript"></script>
+        <script src="/theme/js/behavior.js" type="text/javascript" ></script>
+        <script src="/theme/js/markov.js" type="text/javascript" ></script> 
+    </body>
+</html>
