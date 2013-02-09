@@ -3,9 +3,13 @@ AUTHOR = 'dave'
 DEFAULT_DATE_FORMAT = '%b %d, %Y'
 DEFAULT_ORPHANS = 3
 DELETE_OUTPUT_DIRECTORY = True
-FILES_TO_COPY = [('favicon.ico', 'favicon.ico')]
+FILES_TO_COPY = [
+    ('favicon.ico', 'favicon.ico'),
+#    ('uploads/*', 'uploads/'),
+]
 MARKUP = ('rst', 'md', 'html')
 OUTPUT_PATH = 'output/'
+PATH = 'content/'
 SITENAME = 'Oh! The Huge Manatee!'
 SITEURL = 'http://ohthehugemanatee.net'
 SUMMARY_MAX_LENGTH = None
