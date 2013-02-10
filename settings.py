@@ -1,4 +1,4 @@
-from plugins import summary
+#from plugins import summary
 
 AUTHOR = 'dave'
 
@@ -28,4 +28,4 @@ PAGE_LANG_URL = 'pages/{slug}-{lang}/'
 TAG_URL = 'tag/{name}/'
 TAG_SAVE_AS = 'tag/{name}/index.html'
 
-PLUGINS = [summary]
+PLUGINS = ['pelicanplugins.summary']
