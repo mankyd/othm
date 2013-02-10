@@ -1,4 +1,4 @@
-from pelican.plugins import summary
+from plugins import summary
 
 AUTHOR = 'dave'
 
