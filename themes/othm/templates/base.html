@@ -1,7 +1,7 @@
 {% set static_url = '/theme/' %}
 
 {% macro box(classes) %}
-<div class="box {{ classes }}"><div class="head"><div class="inner"></div></div><div class="body"><div class="inner">{{ caller() }}</div></div><div class="foot"><div class="inner"></div></div></div>
+<div class="box {{ classes }}">{{ caller() }}</div>
 {% endmacro %}
 
 <!DOCTYPE html>

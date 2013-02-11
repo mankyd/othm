@@ -30,27 +30,21 @@ p { margin-bottom: 10px; }
 .header .subtitle { position: absolute; right: 4px; }
 
 .articles { width: 605px; margin-bottom: 20px; }
-.projects { width: 295px; float: right; margin-right: 4px; clear: right;}
-.box.tags { width: 295px; float: right; margin-right: 4px; clear: right;}
+div.projects { width: 272px; float: right; margin-right: 4px; clear: right;}
+div.box.tags { width: 272px; float: right; margin-right: 4px; clear: right;}
 
 .admin { width: 295px; clear: right; float: right; margin-right: 4px; }
 .upload { width: 295px; clear: right; float: right; margin-right: 4px; }
 .uploads { width: 295px; clear: right; float: right; margin-right: 4px; }
 
-.box { position: relative; margin-bottom: 10px; }
-.box > .head { height: 7px; background: url(../images/shadow.tl.png) no-repeat bottom left; }
-.box > .head > .inner { margin-left: 7px; height: 7px; background-color: #fff8e9; border-width: 1px 1px 0; border-style: solid; border-color: #d89300;}
-.box > .body { background: url(../images/shadow.l.png) repeat-y top left; }
-.box > .body > .inner { margin-left: 7px; background-color: #fff8e9; border-width: 0 1px; border-style: solid; border-color: #d89300; padding: 0 7px 7px; }
-.box > .foot { height: 7px; background: url(../images/shadow.bl.png) no-repeat bottom left; }
-.box > .foot > .inner { margin-left: 7px; height: 7px; background: url(../images/shadow.br.png) no-repeat bottom right; }
+div.box { position: relative; margin-bottom: 10px; background-color: #fff8e9; border: 1px solid #d89300; padding: 6px 7px 7px; box-shadow: -3px 3px 3px #aaa; margin-left: 6px; }
 
-.article { margin-bottom: 20px; position: relative; width: 605px; position: relative; }
-.article h2 { position: relative; }
-.article h2 a { text-decoration: none; display: inline-block; max-width: 500px; }
-.article h2 .publication-date { position: absolute; right: 0; bottom: 1px; font-size: 12px; }
-.article .inner .body { padding: 0 4px; margin-bottom: 5px; }
-.article .meta { border-top: 1px solid #5a3d00; font-size: 14px; position: relative; min-height: 14px; margin-bottom: 10px; }
+div.article { margin-bottom: 20px; width: 582px; }
+div.article h2 { position: relative; }
+div.article h2 a { text-decoration: none; display: inline-block; max-width: 500px; }
+div.article h2 .publication-date { position: absolute; right: 0; bottom: 1px; font-size: 12px; }
+div.article div.body { padding: 0 4px; margin-bottom: 5px; }
+div.article .meta { border-top: 1px solid #5a3d00; font-size: 14px; position: relative; min-height: 14px; margin-bottom: 10px; }
 
 .article .tags h3:after { content:':' }
 .article .tags h3 { display: inline; margin-right: 4px; }
@@ -108,9 +102,9 @@ div.ac .tag a { text-decoration: none; margin-left: 4px; font-weight: bold; }
 div.ac .list { background-color: white; border: 1px solid black; padding: 4px 0; font-family: verdana, sans; position: absolute; width: 100%; left: -1px; }
 div.ac .list .current { background-color: orange; font-size: 20px; font-weight: bold; }
 
-body.word-o-matic div.instructions { float: right; width: 295px; }
+body.word-o-matic div.instructions { float: right; width: 272px; }
 body.word-o-matic div.instructions h1 { font-size: 20px; font-weight: bold; border-bottom: 2px solid #5a3d00; color: #5a3d00; margin-bottom: 4px; }
-body.word-o-matic div.results { font-size: 28px; height: 140px; }
+body.word-o-matic div.results { font-size: 28px; height: auto; margin-bottom: 100px; }
 body.word-o-matic div.results span.none { color: #888; font-style: italic; }
 body.word-o-matic div.previous-words h2 { display: inline; font-size: 16px; color: #000; }
 body.word-o-matic div.previous-words ul { display: inline; font-size: 16px; color: #000; }
