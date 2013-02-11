@@ -1,5 +1,3 @@
-#from plugins import summary
-
 AUTHOR = 'dave'
 
 DEFAULT_DATE_FORMAT = '%b %d, %Y'
@@ -28,4 +26,7 @@ PAGE_LANG_URL = 'pages/{slug}-{lang}/'
 TAG_URL = 'tag/{name}/'
 TAG_SAVE_AS = 'tag/{name}/index.html'
 
-PLUGINS = ['pelicanplugins.summary']
+PLUGINS = [
+    'pelican.plugins.gzip_cache',
+    'pelicanplugins.summary',
+]
