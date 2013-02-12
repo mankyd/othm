@@ -21,9 +21,6 @@ html[xmlns] .clearfix {
 
 
 body { padding: 10px; width: 930px; margin: auto; font-family: times new roman; font-size: 16px;  background-color: rgb(255, 252, 219) }
-@media all and (min-width: 700px) { 
-    body { background: url(../images/bg.png); }
-}
 a { color: black;  }
 h2 { font-weight: bold; border-bottom: 2px solid #5a3d00; color: #5a3d00; margin-bottom: 4px; }
 p { margin-bottom: 10px; }
@@ -33,9 +30,9 @@ p { margin-bottom: 10px; }
 .header .logo { position: relative; top: 9px; }
 .header .subtitle { position: absolute; right: 4px; }
 
-.articles { width: 605px; margin-bottom: 20px; }
-div.projects { width: 272px; float: right; margin-right: 4px; clear: right;}
-div.box.tags { width: 272px; float: right; margin-right: 4px; clear: right;}
+section.articles { width: 605px; margin-bottom: 20px; float: left; }
+section.side-content { float: right; }
+div.projects,div.box.tags { width: 272px; }
 
 .admin { width: 295px; clear: right; float: right; margin-right: 4px; }
 .upload { width: 295px; clear: right; float: right; margin-right: 4px; }
@@ -44,15 +41,15 @@ div.box.tags { width: 272px; float: right; margin-right: 4px; clear: right;}
 div.box { position: relative; margin-bottom: 10px; background-color: #fff8e9; border: 1px solid #d89300; padding: 6px 7px 7px; box-shadow: -3px 3px 3px #aaa; margin-left: 6px; }
 
 div.article { margin-bottom: 20px; width: 582px; }
-div.article h2 { position: relative; }
-div.article h2 a { text-decoration: none; display: inline-block; max-width: 500px; }
-div.article h2 .publication-date { position: absolute; right: 0; bottom: 1px; font-size: 12px; }
+div.article h2 a { text-decoration: none; }
+div.article span.publication-date { float: right; font-size: 12px; font-weight: bold; }
 div.article div.body { padding: 0 4px; margin-bottom: 5px; }
 div.article span.via { font-size: 12px; }
 div.article .meta { border-top: 1px solid #5a3d00; font-size: 14px; position: relative; min-height: 14px; padding-top: 4px; }
 
 p.media { text-align: center; }
-p.media img { border: 1px solid #d89300; padding: 3px; }
+p.media img { border: 1px solid #d89300; padding: 3px; height: auto; }
+p.media iframe { border: 1px solid #d89300; padding: 3px; }
 .article .tags h3:after { content:':' }
 .article .tags h3 { display: inline; margin-right: 4px; }
 .article .tags ul,
@@ -122,3 +119,22 @@ body.word-o-matic textarea { width: 576px; height: 200px; }
 body.word-o-matic button, body.word-o-matic input.submit { font-size: 20px; font-weight: bold; margin-top: 10px; }
 body.word-o-matic button.generate { float: right; }
 body.word-o-matic div.presets li { display: inline-block; margin-right: 10px; }
+
+@media all and (min-width: 960px) { 
+  body { background: url(../images/bg.png); }
+}
+@media all and (max-width: 959px) { 
+  body { width: auto; }
+  a.logo img { width: 100%; height: auto; max-width: 550px; }
+  section.articles { width: auto; float: none; }
+  section.side-content { float: none; }
+  div.box.projects,div.box.tags { width: auto; }
+  div.box.projects li { display: inline-block; width: auto; margin-right: 20px; }
+  div.article { width: auto; max-width: 100%; overflow: auto; }
+  p.media { max-width: 100%; }
+  p.media img { max-width: 99%; padding: .5%; }
+  p.media iframe { max-width: 99%; padding: .5%; }
+}
+@media all and (max-width: 865px) { 
+  div.header img.subtitle { display: none; }
+}

@@ -1,14 +1,12 @@
 {% extends "base.html" %}
 {% from 'base.html' import box %}
 {% block content %}
-{% include 'projects.html' %}
-{% include 'tags.html' %}
 <section class="articles">
     {% for article in articles_page.object_list %}
     {% call box('article') %}
+    <span class="publication-date">{{ article.locale_date }}</span>
     <h2>
         <a href="{{ SITEURL }}/{{article.url}}" title="{{article.title}}">{{article.title}}</a>
-        <span class="publication-date">{{ article.locale_date }}</span>
     </h2>
     <div class="body">
         {{ article.summary }}
@@ -39,4 +37,9 @@
     {% endfor %}
 {% include 'pagination.html' %}
 </section><!-- /#content -->
+
+<section class="side-content">
+  {% include 'projects.html' %}
+  {% include 'tags.html' %}
+</section>
 {% endblock content %}
