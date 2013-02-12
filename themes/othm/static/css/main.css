@@ -48,8 +48,11 @@ div.article h2 { position: relative; }
 div.article h2 a { text-decoration: none; display: inline-block; max-width: 500px; }
 div.article h2 .publication-date { position: absolute; right: 0; bottom: 1px; font-size: 12px; }
 div.article div.body { padding: 0 4px; margin-bottom: 5px; }
-div.article .meta { border-top: 1px solid #5a3d00; font-size: 14px; position: relative; min-height: 14px; margin-bottom: 10px; }
+div.article span.via { font-size: 12px; }
+div.article .meta { border-top: 1px solid #5a3d00; font-size: 14px; position: relative; min-height: 14px; padding-top: 4px; }
 
+p.media { text-align: center; }
+p.media img { border: 1px solid #d89300; padding: 3px; }
 .article .tags h3:after { content:':' }
 .article .tags h3 { display: inline; margin-right: 4px; }
 .article .tags ul,
