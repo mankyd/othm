@@ -6,7 +6,7 @@
         <link href="/theme/css/main.css" type="text/css" rel="stylesheet" />
         <!--<script type="text/javascript">var MEDIA_URL = '';</script>-->
         <link rel="shortcut icon" href="/favicon.ico" />
-	<meta name="description" content="The WordOMatic is a random word generator that uses your input to create words." />
+	<meta name="description" content="The Word-o-Matic is a random word generator that uses your input to create words." />
 	<meta name="keywords" content="wordomatic,random words, word, text, markov, statistics, random, fun" />
     </head>
     <body class="word-o-matic">
@@ -21,35 +21,6 @@
         
         
 
-
-<div class="box instructions">
-<h1>The Magical Word-o-Matic</h1>
-<p>
-    The tool at the left combines together <!--{% if preset %}{{preset.description}}{% else %}-->
-    words you supply<!--{% endif %}--> to create new, similar words automatically. 
-    It does this by analyzing provided source text using statistics and 
-    recombining letters from the source to come up with an altogether new word.
-</p>
-<p>
-    <!--{% if preset %}
-    We've already filled in some source text for you. Click "+ show source" to view it. 
-    You are free to edit or replace this text with your own.
-    {% else %}
-    -->
-    Try copying and pasting text from pages you find on the web.
-    <!-- {% endif %}-->
-    Everytime you click 'Generate' a new word will come out. Text that contains similar 
-    sounding words or words that are spelled in similar ways tend to work well. The 
-    more text you enter, the more unique the result will be.
-</p>
-<p>
-    If you're at all interested in the technical wizardy thats at work here, you can 
-    read the <a href="http://ohthehugemanatee.net/article/7/">quick write up that I did</a>.
-</p>
-<p>
-    <a class="addthis_button" href="http://www.addthis.com/bookmark.php?v=250&amp;pub=xa-4aea6b9039b77586"><img src="http://s7.addthis.com/static/btn/v2/lg-share-en.gif" width="125" height="16" alt="Bookmark and Share" style="border:0"/></a><script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pub=xa-4aea6b9039b77586"></script>
-</p>
-</div>
 
 
 
@@ -108,6 +79,36 @@
     
 
 </section><!-- /#content -->
+<section class="side-content">
+<div class="box instructions">
+<h1>The Magical Word-o-Matic</h1>
+<p>
+    The tool at the left combines together <!--{% if preset %}{{preset.description}}{% else %}-->
+    words you supply<!--{% endif %}--> to create new, similar words automatically. 
+    It does this by analyzing provided source text using statistics and 
+    recombining letters from the source to come up with an altogether new word.
+</p>
+<p>
+    <!--{% if preset %}
+    We've already filled in some source text for you. Click "+ show source" to view it. 
+    You are free to edit or replace this text with your own.
+    {% else %}
+    -->
+    Try copying and pasting text from pages you find on the web.
+    <!-- {% endif %}-->
+    Everytime you click 'Generate' a new word will come out. Text that contains similar 
+    sounding words or words that are spelled in similar ways tend to work well. The 
+    more text you enter, the more unique the result will be.
+</p>
+<p>
+    If you're at all interested in the technical wizardy thats at work here, you can 
+    read the <a href="http://ohthehugemanatee.net/article/7/">quick write up that I did</a>.
+</p>
+<p>
+    <a class="addthis_button" href="http://www.addthis.com/bookmark.php?v=250&amp;pub=xa-4aea6b9039b77586"><img src="http://s7.addthis.com/static/btn/v2/lg-share-en.gif" width="125" height="16" alt="Bookmark and Share" style="border:0"/></a><script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pub=xa-4aea6b9039b77586"></script>
+</p>
+</div>
+</section>
 
 <!--        <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
