@@ -29,5 +29,6 @@ TAG_SAVE_AS = 'tag/{name}/index.html'
 PLUGINS = [
     'pelican.plugins.assets',
     'pelican.plugins.gzip_cache',
+    'pelicanplugins.htmlminify',
     'pelicanplugins.summary',
 ]
