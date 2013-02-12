@@ -1,4 +1,4 @@
-from htmlmin import htmlmin
+import htmlmin
 
 from pelican import signals
 
