@@ -26,6 +26,10 @@ PAGE_LANG_URL = 'pages/{slug}-{lang}/'
 TAG_URL = 'tag/{name}/'
 TAG_SAVE_AS = 'tag/{name}/index.html'
 
+FEED_ALL_ATOM = 'feeds/atom.xml'
+FEED_ALL_RSS = 'feeds/rss.xml'
+FEED_MAX_ITEMS = 20
+
 PLUGINS = [
     'pelican.plugins.assets',
     'pelican.plugins.gzip_cache',
