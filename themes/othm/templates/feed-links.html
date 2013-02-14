@@ -1,0 +1,16 @@
+{% from 'base.html' import box %}
+{% call box('feed-links') %}
+Subscribe:
+<ul>
+  {% if FEED_ALL_ATOM %}
+  <li>
+    <a href="http://feeds.feedburner.com/othm-atom" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Full Atom Feed">atom</a>
+  </li>
+  {% endif %}
+  {% if FEED_ALL_RSS %}
+  <li>
+    <a href="http://feeds.feedburner.com/othm-rss" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Full RSS Feed">rss</a>
+  </li>
+  {% endif %}
+</ul>
+{% endcall %}
