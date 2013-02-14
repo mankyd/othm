@@ -1,8 +1,6 @@
 {% extends "base.html" %}
 {% from 'base.html' import box %}
 {% block content %}
-{% include 'projects.html' %}
-{% include 'tags.html' %}
 <section class="articles">
     {% for article in articles_page.object_list %}
     {% call box('article') %}
@@ -29,4 +27,9 @@
     {% endfor %}
 {% include 'pagination.html' %}
 </section><!-- /#content -->
+<section class="side-content">
+{% include 'projects.html' %}
+{% include 'tags.html' %}
+{% include 'feed-links.html' %}
+</section>
 {% endblock content %}

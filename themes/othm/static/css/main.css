@@ -75,28 +75,9 @@ overflow: auto; }
 .footer { padding-top: 4px; border-top: 4px solid #5a3d00; clear: both; font-size: 14px;  }
 .footer img { vertical-align: top; margin-right: 4px; }
 
-form.article { width: 100%; }
-form.article input[type='text'],
-form.article textarea { display: block; width: 572px; padding: 4px; margin-bottom: 10px; }
-form.article input[type='text'] { font-size: 16px;  }
-form.article textarea { font-size: 12px; }
-
-form.article textarea[name="body"] { height: 300px; }
-
-.upload label { display: block; width: 100%; font-size: 14px; font-weight: bold; }
-.upload input[type=text],
-.upload input[type=file],
-.upload select { display: block; width: 100%; }
-.upload .error { color: #f00; font-size: 12px; display: block; }
-
-.uploads-browser { font-size: 14px; }
-.uploads-browser ol li { margin-left: 10px; cursor: pointer; }
-.uploads-browser ol li a { display: block; cursor: }
-.uploads-browser ol li.directory { font-weight: bold; }
-.uploads-browser ol li.directory:before { content: '+'; float: left; }
-.uploads-browser ol li.directory.expanded:before { content: '-'; }
-.uploads-browser ol li.file { font-weight: normal; }
-.uploads-browser li.file input { display: block; width: 100%; }
+div.box.feed-links { font-size: 12px; }
+div.box.feed-links ul { display: inline; }
+div.box.feed-links li { display: inline; margin-left: 6px; }
 
 div.ac { font-family: verdana, sans; font-size: 16px; border: 1px solid black; background-color: white; padding: 2px; display: block; cursor: text; }
 div.ac input { padding: 0; }
