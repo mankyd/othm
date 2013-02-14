@@ -14,7 +14,7 @@
 
     <p>And then, just when I was about to really dive in and start doing it the hard way, Graphtec came through for me. A wonderful gentleman named Neil emailed me back:
     </p>
-    <blockquote>Hi Dave,
+    <blockquote pre>Hi Dave,
 
         Thank you for your interest in Graphtec products.  I have attached the HPGL and GPGL command sets found in Graphtec cutters for your reference. The reference documents are provided "as is" and we cannot provide additional assistance.  I wish you good luck with your endeavor.
 
@@ -31,7 +31,7 @@
 
     <p>Just like that, I had what I needed! I may or may not have responded back to Neil with professions of love and adulation. I also asked for some quick clarification on one, undocumented point: how does one switch the plotter between GPGL and HPGL mode? He promptly responded back:</p>
 
-    <blockquote>My understanding is that the newer Graphtec  FC8000 have the capability to autoswitch  when they receive either GPGL or HPGL commands, but previous cutters such as the CE5000-40 (Craft Robo Pro) require the user to change the command language from the front panel to match incoming data.</blockquote>
+    <blockquote pre>My understanding is that the newer Graphtec  FC8000 have the capability to autoswitch  when they receive either GPGL or HPGL commands, but previous cutters such as the CE5000-40 (Craft Robo Pro) require the user to change the command language from the front panel to match incoming data.</blockquote>
 
     <p>The Silhouette does not have an option to manually switch between the two specifications, and in my testing, it does not seem as though the Silhouette automatically switches into HPGL mode either (perhaps someone can correct me on this). That being said, it does seem to be responding to GPGL commands.</p>
 
@@ -39,7 +39,7 @@
 
     <p>To help confirm this, I installed a USB sniffer on my wife's Windows computer, along with with Silhouette Studio software. I had the plotter draw out two simple lines, each about the length of the page. Here is the primary data payload that I saw sent back and forth (in hex):</p>
 
-    <code>        03 21 31 30 2c 30 03 54 54 03 48 03 54 42 35 30
+    <code pre>        03 21 31 30 2c 30 03 54 54 03 48 03 54 42 35 30
         2c 31 03 54 42 35 30 2c 30 03 46 43 30 03 54 42
         39 39 03 46 4d 31 03 54 42 35 30 2c 31 03 46 4f
         35 35 38 37 03 26 31 30 30 2c 31 30 30 2c 31 30

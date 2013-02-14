@@ -33,5 +33,6 @@ FEED_MAX_ITEMS = 20
 PLUGINS = [
     'pelican.plugins.assets',
     'pelican.plugins.gzip_cache',
+    'pelicanplugins.htmlminify',
     'pelicanplugins.summary',
 ]
