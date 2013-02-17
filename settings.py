@@ -30,6 +30,11 @@ FEED_ALL_ATOM = 'feeds/atom.xml'
 FEED_ALL_RSS = 'feeds/rss.xml'
 FEED_MAX_ITEMS = 20
 
+HTMLMIN_SETTINGS = {
+    'remove_empty_space': True,
+    'remove_comments': True,
+}
+
 PLUGINS = [
     'pelican.plugins.assets',
     'pelican.plugins.gzip_cache',
