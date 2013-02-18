@@ -9,7 +9,7 @@
     <p>I've been reading the Iliad and I've found that the names of the characters are, simply put, quite awesome. One of the interesting things about the Greek names was that they all seemed to be composed of very similar phonemes. I started wondering if there was a way I could programmatically combine together common letter combinations to create my own bad-ass Greek names.</p>
     <p>I started brainstorming very forms of statistical analysis I could run on the names to generate a finite-state-machine of sorts that would create names on the fly (yes, I am a huge nerd.) Then, earlier this week, I stumbed upon <a href="http://en.wikipedia.org/wiki/Markov_chain#Markov_text_generators">Markov Text Analysis</a> quite by accident. I did some more research and discovered that this was exactly the kind of algorithm I'd been brainstorming in my head. Not only that, but the technique is generally applicable to language and text analysis; you can analyze words at the character level (as I wanted to do to create Greek names) or at the word level, generating sentences and whole compositions.</p>
     <p>Markov analysis works by taking the input and generating from it a set of probable next steps for each item in the input. That is to say, it tells you, given your current state, what you should do next. Take the word "Mississippi". If we analyze this at the character level, we'll get something that looks like the following:</p>
-    <code pre>start
+    <pre><code>start
         -'M': 100%
         M
         -'i': 100%
@@ -22,12 +22,12 @@
         -i: 50%
         p:
         -p: 50%
-        -i: 50%</code>
+        -i: 50%</code></pre>
 
     <p>Explained further: The first letter in our text will always be an 'M' and after an 'M' will always come an 'i'. All of our newly generated words will therefore start with 'Mi'. After 'i', things become more interesting - 'i' can be followed by an 's', 'p', or it can simply be the end of the word. 's' and 'p' in turn can result in more s's and p's or another 'i'. The following words could all therefore be generated: "Mi", "Misi", "Mippppppissssipi". Adding more words to the input allow for different starting and ending letters, along with different letter combinations throughout.</p>
 
     <p>Now, obviously a word like "Mipppppppppppi" looks a little silly thanks to the ridiculous number of repeating letters. <strike>English never has more than two repeating letters in a row (to the best of my knowledge.)</strike> English only has a single word that actually contains more than two letters in a row - "Goddessship" - and that's a rather silly word so its safe to build our analyzer as though we never want more than two repeating letters. To account for this, we need to make our analysis smarter - make it aware of the fact that its input won't generally have more than 2 repeating letters. To do this, we simply make it look at 2 letters at a time when it does its analysis and generation. Analyzing "Mississippi" this way, we get:</p>
-    <code pre>start
+    <pre><code>start
         -'Mi': 100%
         Mi
         -'ss': 100%
@@ -44,12 +44,12 @@
         pp
         -'i': 100%
         pi
-        -end: 100%</code>
+        -end: 100%</code></pre>
 
     <p>Now possible words look more like "Missippi" or "Mississississippi". Much more sane, relatively speaking. You may notice that, if you entered in a word that has 4 repeating letters, you can end up back in a a situation where you have long chains of single letters. If you spelled the word "Missssissippi", then you end end up with a chance that the letters 'ss' get followed up by another 'ss'. This can be fixed by increasing the analysis size to 3 characters or more, but you end up with a trade off - larger analysis sizes require larger inputs to generate unique combinations. From anecdotal testing, a analysis size of two seems to give a good result in terms of the naturalness of the word.</p>
     <p>You may also notice that, if you step through the above analysis, not all character pairs are reachable. You will always start with "Mi" which will always be followed by "ss" and from there you'll find yourself only able to repeat "issississi" or bail out with an "ippi". This is not terribly interesting.</p>
     <p>There are two ways to fix this. One is to enter more words into the input. If the new words contain similar letter pairs, new avenues for combination are introduced. This actually works well assuming that the words one adds to the input are similar, but we can achieve better results with smaller inputs as well. We do this by analyzing words in two letter chunks but only recording single letters for the next step in our word. Analyzing "Mississippi" this way, we get:</p>
-    <code pre>start
+    <pre><code>start
         -'Mi': 100%
         Mi
         -'s': 100%
@@ -65,14 +65,14 @@
         pp
         -'i': 100%
         pi
-        -end: 100%</code>
+        -end: 100%</code></pre>
 
     <p>Now, before we get too excited, one will note that this generates the same words as the previous analysis, just slower. That's fair, but one will find that, with a larger source input, this will allow for a more dynamic spelling vocabulary.</p>
     <p>Also, one will note that we included a two letter output for our starting step. That is because each subsequent step requires two letters for input, so we need two letters to start with. We could have also started with:</p>
-    <code pre>start
+    <pre><code>start
         -'M': 100%
         M
-        -'i': 100%</code>
+        -'i': 100%</code></pre>
     <p>That would require making our generator more complex however, as it would have to include logic to do a single letter step after the first letter. The end result would be the same.</p>
     <p>So, where does this leave us? It leaves us with some <a href="http://ohthehugemanatee.net/word-o-matic/greek-heroes/" title="Imgainery Greek Hero Names">kickass, made-up Greek warrior names</a>, that's where. Names like "Dolocheptor", "Adresius", and "Ilionestor". Moreover, when you input the text of <a href="http://ohthehugemanatee.net/word-o-matic/jabberwocky/" title="Jabberwocky">Lewis Carroll's Jabberwocky</a>, you get words like "throgovested", "Jabbersnack", and "swortled". All and all, a few hours time well spent, if I do say so myself. Of course, if you want to use your own source text, you're more than welcome to <a href="http://ohthehugemanatee/word-o-matic/" title="The Magical Word-o-Matic">give it a whirl</a>.
     </p>
