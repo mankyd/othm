@@ -42,6 +42,7 @@ div.box { position: relative; margin-bottom: 10px; background-color: #fff8e9; bo
 
 div.article { margin-bottom: 20px; width: 582px; }
 div.article h2 a { text-decoration: none; }
+div.article h3 { font-weight: bold; text-decoration: underline; margin-bottom: 4px; }
 div.article span.publication-date { float: right; font-size: 12px; font-weight: bold; }
 div.article div.body { padding: 0 4px; margin-bottom: 5px; }
 div.article span.via { font-size: 12px; }
