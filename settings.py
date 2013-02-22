@@ -14,6 +14,10 @@ ARTICLE_DIR = 'articles'
 PATH = 'content/'
 SITENAME = 'Oh! The Huge Manatee!'
 SITEURL = 'http://ohthehugemanatee.net'
+STATIC_PATHS = [
+  'images',
+  'uploads',
+]
 SUMMARY_MAX_LENGTH = None
 THEME = 'themes/othm'
 TIMEZONE = 'US/Eastern'
