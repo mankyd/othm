@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% from 'base.html' import box %}
+{% block title %}{{ article.title }} - {{ SITENAME }}{% endblock %}
 {% block content %}
 <section class="articles">
     {% call box('article') %}
