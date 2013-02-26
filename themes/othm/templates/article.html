@@ -24,7 +24,7 @@
             <h3>tags</h3>
             <ul>
                 {% for tag in article.tags %}
-                <li><a href="{{ SITEURL }}{{ tag.url }}" title="{{ tag }}">{{ tag }}</a></li>
+                <li><a href="/{{ tag.url }}" title="{{ tag }}">{{ tag }}</a></li>
                 {% endfor %}
             </ul>
         </div>
