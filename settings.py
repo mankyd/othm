@@ -2,7 +2,7 @@ AUTHOR = 'dave'
 
 DEFAULT_DATE_FORMAT = '%b %d, %Y'
 DEFAULT_ORPHANS = 3
-DELETE_OUTPUT_DIRECTORY = True
+DELETE_OUTPUT_DIRECTORY = False #True
 FILES_TO_COPY = [
     ('favicon.ico', 'favicon.ico'),
     ('word-o-matic/word-o-matic.html', 'word-o-matic.html'),
