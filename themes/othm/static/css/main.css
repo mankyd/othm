@@ -49,8 +49,8 @@ div.article span.via { font-size: 12px; }
 div.article .meta { border-top: 1px solid #5a3d00; font-size: 14px; position: relative; min-height: 14px; padding-top: 4px; }
 
 p.media { text-align: center; }
-p.media img { border: 1px solid #d89300; padding: 3px; height: auto; max-width: 100%; }
-p.media iframe { border: 1px solid #d89300; padding: 3px; }
+p.media img { border: 1px solid #d89300; padding: 3px; height: auto; max-width: 100%; max-width: calc(100% - 11px); max-width: -webkit-calc(100% - 11px); }
+p.media iframe { border: 1px solid #d89300; padding: 3px; max-width: calc(100% - 11px); max-width: -webkit-calc(100% - 11px); }
 .article .tags h3:after { content:':' }
 .article .tags h3 { display: inline; margin-right: 4px; }
 .article .tags ul,
@@ -115,9 +115,6 @@ body.word-o-matic div.presets li { display: inline-block; margin-right: 10px; }
   div.box.projects li { display: inline-block; width: auto; margin-right: 20px; }
   body.word-o-matic div.box.instructions { width: auto; }
   div.article { width: auto; max-width: 100%; overflow: auto; }
-  p.media { max-width: 100%; }
-  p.media img { max-width: 99%; padding: .5%; }
-  p.media iframe { max-width: 99%; padding: .5%; }
 }
 @media all and (max-width: 865px) { 
   div.header img.subtitle { display: none; }
