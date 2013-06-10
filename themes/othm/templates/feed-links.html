@@ -1,6 +1,6 @@
 {% from 'base.html' import box %}
 {% call box('feed-links') %}
-<p>
+<div>
   Subscribe:
   <ul>
     {% if FEED_ALL_ATOM %}
@@ -14,8 +14,8 @@
     </li>
     {% endif %}
   </ul>
-</p>
-<p>
+</div>
+<div>
   Social:
   <ul>
     <li>
@@ -25,5 +25,5 @@
       <a href="https://www.facebook.com/dave.mankoff">Facebook</a>
     </li>
   </ul>
-</p>
+</div>
 {% endcall %}
