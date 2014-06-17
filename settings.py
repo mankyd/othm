@@ -3,21 +3,23 @@ AUTHOR = 'dave'
 DEFAULT_DATE_FORMAT = '%b %d, %Y'
 DEFAULT_ORPHANS = 3
 DELETE_OUTPUT_DIRECTORY = False #True
-FILES_TO_COPY = [
-    ('favicon.ico', 'favicon.ico'),
-    ('word-o-matic/word-o-matic.html', 'word-o-matic.html'),
-#    ('uploads/*', 'uploads/'),
+STATIC_PATHS = [
+  'images',
+  'uploads',
+  'favicon.ico',
+  'word-o-matic/word-o-matic.html',
 ]
+
+EXTRA_PATH_METADATA = {
+    'word-o-matic/word-o-matic.html': {'path': 'word-o-matic.html'},
+}
+
 MARKUP = ('rst', 'md', 'html')
 OUTPUT_PATH = 'output/'
 ARTICLE_DIR = 'articles'
 PATH = 'content/'
 SITENAME = 'Oh! The Huge Manatee!'
 SITEURL = 'http://ohthehugemanatee.net'
-STATIC_PATHS = [
-  'images',
-  'uploads',
-]
 SUMMARY_MAX_LENGTH = None
 THEME = 'themes/othm'
 TIMEZONE = 'US/Eastern'
@@ -39,9 +41,10 @@ HTMLMIN_SETTINGS = {
     'remove_comments': True,
 }
 
+PLUGIN_PATH = '/home/dave/devel/pelican-plugins'
 PLUGINS = [
-    'pelican.plugins.assets',
-    'pelican.plugins.gzip_cache',
-    'pelicanplugins.htmlminify',
-    'pelicanplugins.summary',
+    'assets',
+    'gzip_cache',
+    #'pelicanplugins.htmlminify',
+    'summary',
 ]
