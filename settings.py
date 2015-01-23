@@ -2,21 +2,20 @@ AUTHOR = 'dave'
 
 DEFAULT_DATE_FORMAT = '%b %d, %Y'
 DEFAULT_ORPHANS = 3
-DELETE_OUTPUT_DIRECTORY = False #True
+DELETE_OUTPUT_DIRECTORY = True
 STATIC_PATHS = [
   'images',
   'uploads',
   'favicon.ico',
-  'word-o-matic/word-o-matic.html',
+  'word-o-matic',
 ]
 
 EXTRA_PATH_METADATA = {
-    'word-o-matic/word-o-matic.html': {'path': 'word-o-matic.html'},
 }
 
 MARKUP = ('rst', 'md', 'html')
 OUTPUT_PATH = '../output/'
-ARTICLE_PATHES = ['articles']
+ARTICLE_PATHS = ['articles']
 PATH = 'content/'
 SITENAME = 'Oh! The Huge Manatee!'
 SITEURL = 'http://ohthehugemanatee.net'
@@ -27,8 +26,8 @@ TIMEZONE = 'US/Eastern'
 ARTICLE_SAVE_AS = '{date:%Y/%m}/{slug}/index.html'
 ARTICLE_URL = '{date:%Y/%m}/{slug}/'
 ARTICLE_LANG_URL = '{slug}-{lang}/'
-PAGE_URL = 'pages/{slug}/'
-PAGE_LANG_URL = 'pages/{slug}-{lang}/'
+PAGE_URL = '{slug}/'
+PAGE_LANG_URL = '{slug}-{lang}/'
 TAG_URL = 'tag/{name}/'
 TAG_SAVE_AS = 'tag/{name}/index.html'
 
