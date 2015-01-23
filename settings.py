@@ -15,8 +15,8 @@ EXTRA_PATH_METADATA = {
 }
 
 MARKUP = ('rst', 'md', 'html')
-OUTPUT_PATH = 'output/'
-ARTICLE_DIR = 'articles'
+OUTPUT_PATH = '../output/'
+ARTICLE_PATHES = ['articles']
 PATH = 'content/'
 SITENAME = 'Oh! The Huge Manatee!'
 SITEURL = 'http://ohthehugemanatee.net'
@@ -41,10 +41,10 @@ HTMLMIN_SETTINGS = {
     'remove_comments': True,
 }
 
-PLUGIN_PATH = '/home/dave/devel/pelican-plugins'
+PLUGIN_PATHS = ['/home/dave/othm/pelican-plugins']
 PLUGINS = [
     'assets',
     'gzip_cache',
-    #'pelicanplugins.htmlminify',
+#    'pelicanplugins.htmlminify',
     'summary',
 ]
