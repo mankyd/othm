@@ -75,13 +75,9 @@ var wordomatic = {
 new Behavior.Class('Wordomatic', {
     context: "body.word-o-matic",
     events: {
-        'submit': {
-            'form': 'saveInput'
-        },
         'click': {
             '.show-source':'clickShowSource',
             '.hide-source':'clickHideSource',
-            '.save':'clickSave',
             '.generate':'clickGenerate'
         }
     },
@@ -98,10 +94,6 @@ new Behavior.Class('Wordomatic', {
 	    });
         }
         this.generate(this.context.down('form'));
-        this.context.down('form').onsubmit = null;
-        this.defaultTitle = $F(this.context.down('.save-form input'));
-        this.context.down('.save-form input').observe('focus', this.focusTitle.bind(this));
-        this.context.down('.save-form input').observe('blur', this.blurTitle.bind(this));
     },
     clickShowSource: function(evt) {
         evt.stop();
@@ -114,37 +106,6 @@ new Behavior.Class('Wordomatic', {
         this.context.select('div.input,button.save,div.save-form').invoke('hide');
         this.context.select('.hide-source').invoke('hide');
         this.context.select('.show-source').invoke('show');
-    },
-    clickSave: function(evt) {
-        evt.stop();
-        evt.element().up('form').down('.save-form').show();
-    },
-    focusTitle: function(evt) {
-        var el = evt.element();
-        if (el.hasClassName('default')) {
-            el.removeClassName('default');
-            el.value = '';
-        }
-    },
-    blurTitle: function(evt) {
-        var el = evt.element();
-        if ($F(el).strip() == '') {
-            el.value = this.defaultTitle;
-            el.addClassName('default');
-        }
-    },
-    saveInput: function(evt) {
-        var el = evt.element();
-        var input = el.down('textarea.input');
-        var title = el.down('input.title');
-        if ($F(input).strip() == '') {
-            this.error('Please enter some input text before saving.');
-            evt.stop();
-        }
-        else if (title.hasClassName('default') || $F(title).strip() == '') {
-            this.error('Please enter a title');
-            evt.stop();
-        }
     },
     error: function(message) {
         this.context.down('ul.errors').insert({bottom:'<li>'+message+'</li>'});
