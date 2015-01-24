@@ -42,10 +42,13 @@ HTMLMIN_SETTINGS = {
     'remove_comments': True,
 }
 
-PLUGIN_PATHS = ['../pelican-plugins']
+PLUGIN_PATHS = [
+    'plugins',
+    '../pelican-plugins'
+]
 PLUGINS = [
     'assets',
     'gzip_cache',
-#    'pelicanplugins.htmlminify',
+    'htmlminify',
     'summary',
 ]
