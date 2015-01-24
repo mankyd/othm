@@ -13,6 +13,8 @@ STATIC_PATHS = [
 EXTRA_PATH_METADATA = {
 }
 
+RELATIVE_URLS = False
+
 MARKUP = ('rst', 'md', 'html')
 OUTPUT_PATH = '../output/'
 ARTICLE_PATHS = ['articles']
@@ -40,7 +42,7 @@ HTMLMIN_SETTINGS = {
     'remove_comments': True,
 }
 
-PLUGIN_PATHS = ['/home/dave/othm/pelican-plugins']
+PLUGIN_PATHS = ['../pelican-plugins']
 PLUGINS = [
     'assets',
     'gzip_cache',
