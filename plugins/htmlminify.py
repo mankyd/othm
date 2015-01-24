@@ -36,6 +36,8 @@ def minify(path, context):
             inp.read().decode('utf-8'), 
             **context['HTMLMINIFY_SETTINGS']).encode('utf-8'))
     tmp_file.close()
+    stats = os.stat(path)
+    os.chmod(tmp_location, stats.st_mode)
     os.rename(tmp_location, path)
 
 def register():
