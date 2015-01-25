@@ -50,5 +50,6 @@ PLUGINS = [
     'assets',
     'gzip_cache',
     'htmlminify',
+    'optimize_images',
     'summary',
 ]
