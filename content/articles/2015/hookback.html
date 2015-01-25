@@ -1,0 +1,42 @@
+<head>
+  <title>Hookback</title>
+  <meta name="keywords" content="github, programming, golang" />
+  <meta name="date" content="2015-01-24 20:01" />
+  <meta name="category" content="programming" />
+</head>
+<body>
+  <p>
+    I released a new piece of software the other day, 
+    <a href="https://github.com/mankyd/hookback" title="Hookback">Hookback</a>.
+    It's purpose it to receive and handle webhook callback's from GitHub. I've
+    seen several other projets that aim to do this, but they often seem 
+    inflexible or difficult to set up. Hookback aims to be dead simple.
+  </p>
+  <p>
+    You tell it what events to listen for on what repositories, and then you
+    give it a command to run for those events. That's it. It can run those
+    commands synchronousely and respond back to GitHub with the output, or it
+    can run them in the background, so that long running commands to block the
+    request.
+  </p>
+  <p>
+    As an example, I am now using Hookback to power this site. This site is
+    <a href="https://github.com/mankyd/othm" title="Oh The Huge Manatee">
+      published on GitHub</a>, and when I commit and push new content to the
+    repository, GitHub notifies this server. The server then runs the commands
+    necessary to recompile and publish the new content on the site. It makes it
+    very easy to get new content posted.
+  </p>
+  <p>
+    It's my first real project written in
+    <a href="http://golang.org/" title="Go">Go</a> and I am really enjoying it.
+    It took awhile to find a groove with the syntax, but it's a real pleasure to
+    use now. I am already scheming for what's next.
+  </p>
+  <p>
+    Feel free to let me know if you have any questions or features requests
+    for Hookback. I aim to keep it simple, but that's not to say there isn't
+    room for improvement.
+  </p>
+</body>
+
