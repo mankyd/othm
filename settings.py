@@ -5,12 +5,14 @@ DEFAULT_ORPHANS = 3
 DELETE_OUTPUT_DIRECTORY = True
 STATIC_PATHS = [
   'images',
+  'misc',
   'uploads',
   'favicon.ico',
   'word-o-matic',
 ]
 
 EXTRA_PATH_METADATA = {
+  'misc/robots.txt': {'path': 'robots.txt'},
 }
 
 RELATIVE_URLS = False
