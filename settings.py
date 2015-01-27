@@ -18,7 +18,7 @@ EXTRA_PATH_METADATA = {
 RELATIVE_URLS = False
 
 MARKUP = ('rst', 'md', 'html')
-OUTPUT_PATH = '../output/'
+OUTPUT_PATH = 'output/'
 ARTICLE_PATHS = ['articles']
 PATH = 'content/'
 SITENAME = 'Oh! The Huge Manatee!'
