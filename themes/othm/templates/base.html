@@ -36,6 +36,7 @@
         {% if TAG_FEED_RSS %}
         <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_RSS|format(tag) }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Tags RSS Feed" />
         {% endif %}
+        {% block head %}{% endblock %}
     </head>
     <body>
         <div class="header">
