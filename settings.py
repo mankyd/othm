@@ -54,4 +54,5 @@ PLUGINS = [
     'htmlminify',
     'optimize_images',
     'summary',
+    'tag_cloud',
 ]
