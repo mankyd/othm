@@ -9,8 +9,8 @@
     <head>
         <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
         {% assets filters="cssmin", output="css/m.%(version)s.css", "css/undohtml.css", "css/main.css" %}
-        {# <link rel="stylesheet" href="{{ SITEURL }}/{{ ASSET_URL }}"> #}
-        <style>{{ ASSET_CONTENTS }}</style>
+	<link rel="stylesheet" href="{{ SITEURL }}/{{ ASSET_URL }}">
+        {# <style>{{ ASSET_CONTENTS }}</style> #}
         {% endassets %}
         <link rel="shortcut icon" href="/favicon.ico" /> 
         <meta name="google-site-verification" content="FybNnk5RBcNO3FS5VuEBDYo_cgZOZeJ4-amoVjnPVgE" />
