@@ -6,8 +6,8 @@
 </head>
 <body>
   <p>
-    I don't add content to this site very often. I should. Part of
-    the reason for that is I don't actually rememember <i>how</i>
+    I don&#39;t add content to this site very often. I should. Part of
+    the reason for that is I don&#39;t actually rememember <i>how</i>
     to get content to appear here.
   </p>
   <p>
@@ -19,7 +19,7 @@
   </p>
   <p>
     I am going to attempt to document my progress of getting it
-    working again here. I'll hopefully be able to use this docunent
+    working again here. I&#39;ll hopefully be able to use this docunent
     as a reference in the future.
   </p>
   <h1>2023-12-05 10:26</h1>
@@ -58,7 +58,7 @@
   </p>
   <h1>2025-02-12 20:17</h1>
   <p>
-    Whew, it's been awhile!
+    Whew, it&#39;s been awhile!
   </p>
   <p>
     The next thing to try was downloading a copy of the site locally. I have a new
@@ -67,7 +67,7 @@
   </p>
   <p>
     I had to setup an SSH key to actually work on the code. I could have cloned the
-    repository with out it, but I won't be able to push. I started with GitHub's
+    repository with out it, but I won&#39;t be able to push. I started with GitHub&#39;s
     <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account">
     instructions for adding an ssh key to an account.</a> This, of course, meant
     generating an ssh key first. Thankfully, github has 
@@ -131,7 +131,7 @@
   </code>
   <p>
     Always a little terrifying to curl random bash scripts, but I suppose
-    it's no worse than downloading and running any other random, uninspected
+    it&#39;s no worse than downloading and running any other random, uninspected
     binary.
   </p>
   <p>
@@ -143,7 +143,7 @@
     export PATH="/usr/local/opt/python/libexec/bin:$PATH"
   </code>
   <p>
-    to my "~/.profile" file, but this didn't work. OSX runs zsh by
+    to my "~/.profile" file, but this didn&#39;t work. OSX runs zsh by
     default, so I needed to add it to "~/.zprofile".
   </p>
   <p>
@@ -235,9 +235,9 @@ Serving site at: http://127.0.0.1:8000 - Tap CTRL-C to stop
   </p>
   <p>
     First, I created a new Pelican site alongside the existing one, just to see
-    what's changed. After creating a new emptry directory, I run 
-    "pelican-quickstart" per the instructions, but the command doesn't work. I
-    see the the command exists in my virtual environment's "bin" directory, but
+    what&#39;s changed. After creating a new emptry directory, I run 
+    "pelican-quickstart" per the instructions, but the command doesn&#39;t work. I
+    see the the command exists in my virtual environment&#39;s "bin" directory, but
     that bin is not in my path. I run "../bin/pelican-quickstart" instead.
   </p>
   <p>
@@ -267,7 +267,7 @@ Serving site at: http://127.0.0.1:8000 - Tap CTRL-C to stop
     greeted by many errors, including an apparent infinite loop:
   </p>
   <blockquote>
-Skipping /Users/dave/devel/othm/tmp/content/word-o-matic/index.html: could not find information about 'date'
+Skipping /Users/dave/devel/othm/tmp/content/word-o-matic/index.html: could not find information about &#39;date&#39;
 There are 2 items "with slug "2016-in-review"" with lang en: 
 /Users/dave/devel/othm/tmp/content/articles/2016/2016_in_review.html
 /Users/dave/devel/othm/tmp/content/articles/2022/butterfly.html
@@ -277,11 +277,11 @@ There are 2 original (not translated) items with slug "2016-in-review":
 {filename} used for linking to static content /images/2016/parachute-skydiving-parachuting-jumping-38447.jpeg in articles/2016/double_blind_parachute_trial.html. Use {static} instead
 Caught exception:
 "File /Users/dave/devel/othm/tmp/output/2016-in-review.html is to be overwritten".
-Skipping /Users/dave/devel/othm/tmp/content/word-o-matic/index.html: could not find information about 'date'
-Skipping /Users/dave/devel/othm/tmp/content/word-o-matic/index.html: could not find information about 'date'
-Skipping /Users/dave/devel/othm/tmp/content/word-o-matic/index.html: could not find information about 'date'
-Skipping /Users/dave/devel/othm/tmp/content/word-o-matic/index.html: could not find information about 'date'
-Skipping /Users/dave/devel/othm/tmp/content/word-o-matic/index.html: could not find information about 'date'
+Skipping /Users/dave/devel/othm/tmp/content/word-o-matic/index.html: could not find information about &#39;date&#39;
+Skipping /Users/dave/devel/othm/tmp/content/word-o-matic/index.html: could not find information about &#39;date&#39;
+Skipping /Users/dave/devel/othm/tmp/content/word-o-matic/index.html: could not find information about &#39;date&#39;
+Skipping /Users/dave/devel/othm/tmp/content/word-o-matic/index.html: could not find information about &#39;date&#39;
+Skipping /Users/dave/devel/othm/tmp/content/word-o-matic/index.html: could not find information about &#39;date&#39;
 ...
   </blockquote>
   <p>
@@ -296,7 +296,7 @@ Skipping /Users/dave/devel/othm/tmp/content/word-o-matic/index.html: could not f
     have an error in the_magical_wordomatic.html page:
   </p>
   <blockquote>
-    ERROR    Skipping /Users/dave/devel/othm/tmp/content/word-o-matic/index.html: could not find information about 'date' 
+    ERROR    Skipping /Users/dave/devel/othm/tmp/content/word-o-matic/index.html: could not find information about &#39;date&#39; 
   </blockquote>
   <p>
     <i>Then</i>I looked closer and realized that all my articles are actually in 
@@ -319,12 +319,12 @@ Skipping /Users/dave/devel/othm/tmp/content/word-o-matic/index.html: could not f
   </p>
   <p>
     Finally, I changed "ARTICLE_PATHS" from its default value to 
-    "['articles']" and this seems to have resolved the issue.
+    "[&#39;articles&#39;]" and this seems to have resolved the issue.
   </p>
   <p>
     I copied over the "theme" directory next, and blindly set the
     "THEME" property to "theme/othm" as I had in the prioer version and was
-    met with a new error: "Encountered unknown tag 'assets'.". Some plugin I
+    met with a new error: "Encountered unknown tag &#39;assets&#39;.". Some plugin I
     am missing perhaps? I copied over the "plugins" and "pelicanplugins"
     directories, added them to the pelicanconf.py file and...
   </p>
@@ -334,7 +334,7 @@ Skipping /Users/dave/devel/othm/tmp/content/word-o-matic/index.html: could not f
            ERROR    Cannot load plugin `gzip_cache`                                                                                                                                          
                     Cannot import plugin `gzip_cache`                                                                                                                                                       
            ERROR    Cannot load plugin `htmlminify`                                                                                                                                           
-                    No module named 'htmlmin'                                                                                                                                                               
+                    No module named &#39;htmlmin&#39;                                                                                                                                                               
            ERROR    Cannot load plugin `optimize_images`                                                                                                                                      
                     Cannot import plugin `optimize_images`                                                                                                                                                  
            ERROR    Cannot load plugin `summary`                                                                                                                                              
@@ -347,7 +347,7 @@ Cannot import plugin `assets`
 Cannot load plugin `gzip_cache`
 Cannot import plugin `gzip_cache`
 Cannot load plugin `htmlminify`
-No module named 'htmlmin'
+No module named &#39;htmlmin&#39;
 Cannot load plugin `optimize_images`
 Cannot import plugin `optimize_images`
 Cannot load plugin `summary`
@@ -356,14 +356,14 @@ Cannot load plugin `tag_cloud`
 Cannot import plugin `tag_cloud`
 Serving site at: http://127.0.0.1:8000 - Tap CTRL-C to stop
 Caught exception:
-"Encountered unknown tag 'assets'.".
+"Encountered unknown tag &#39;assets&#39;.".
   </blockquote>
   <p>
     I cloned the old
     <a href="https://github.com/getpelican/pelican-plugins">pelican-plugins</a> 
     which is evidently deprecated in favor of the newer
     <a href="https://github.com/pelican-plugins">pelican-plugins github org</a>.
-    I'll sort that all out later. 
+    I&#39;ll sort that all out later. 
   </p>
   <p>
     Still, a few plugins were broken: htmlmin, summary, and assets. I disabled
@@ -382,8 +382,8 @@ Caught exception:
   <p>
     Looking at the source for the output site, I indeed saw an empty style
     tag at the top. The theme is expecting some sort of "ASSET_CONTENTS"
-    variable to be populated, but I can't see this documented anywhere in
-    the asset's plugin documentation.
+    variable to be populated, but I can&#39;t see this documented anywhere in
+    the asset&#39;s plugin documentation.
   </p>
   <p>
     Instead of inlining the content, I uncommented a link tag I had at the
@@ -411,5 +411,89 @@ Caught exception:
   <p>
     But now I still need to push to the server.
   </p>
-  
+  <h1>2025-02-16 13:55</h1>
+  <p>
+    I found documentation
+    <a href="https://firebase.google.com/docs/hosting/quickstart">"Get started
+      with Firebase Hosting"</a>. Step 1 is to install the Firebase CLI tools.
+    Then I logged in an tested the tooling, ala "firebase login" command.
+  </p>
+  <p>
+    Inside my git repository, where pelican is actively running, I ran
+    "firebase init hosting". I chose an existing project, pointed at
+    pelican&#39;s output directory, and left everything else at the defaults.
+  </p>
+  <p>
+    At this point, if I run "firebase deploy --only hosting", I might have a
+    working site? However, I don&#39;s want to deploy over the existing site
+    until I have verified that this will all work. There should be a way to
+    deploy to a staging/testing location.
+  </p>
+  <p>
+    Reading the docs, it suggested running "firebase hosting:channel:deploy
+    preview". This returned a url with the website hosted. Hooray! However,
+    it also fails to render any css. Good thing I didn&#39;t push to prod.
+    Opening up the dev console, it appears to be as simple as the fact that
+    the css was loaded over http instead of https.
+  </p>
+  <p>
+    I popped open "pelicanconf.py" and changed the SITE_URL to https. Then
+    I noticed the the local development copy of my site was loading the css off
+    of the web instead of a local copy of the css. This is wrong.
+  </p>
+  <p>
+    Uncommenting "RELATIVE_URLS" in pelicanconf.py fixed this up. I will also
+    need to be careful to publish with the publishconfi.py file when actually
+    pushing to firebase.
+  </p>
+  <p>
+    One more call to "pelican content -s publishconf.py" followed by another
+    call to "firebase hosting:channel:deploy preview" and my site looks ok!
+    However...
+  </p>
+  <p>
+    When I click over to the word-o-matic, the page loads and is functional,
+    but if I click any of the "presets", I get a 404. This could just be a
+    quirk of the preview domain.
+  </p>
+  <p>
+    But I did some more digging and discovered url
+    <a href="https://firebase.google.com/docs/hosting/full-config#rewrites">
+      rewrites</a>. I don&#39;t know why I do not have this firebase.json
+    file already checked into my git repository, but I am going to now!
+    I added the following to my firebase.json:
+  </p>
+  <code>
+    "rewrites":[ {
+      "source": "/word-o-matic/*/",
+      "destination": "/word-o-matic/index.html"
+    } ]
+  </code>
+  <p>
+    Partial success. The page now loads, but the json containing the preset
+    content returns a 404. Terrifyingly, I can&#39; find those json files
+    anywhere in my repo. Where are they?
+  </p>
+  <p>
+    I downloaded all the json files and added them to the repostiory. Another
+    push to firebase and... partial success? For some reason, two of the json
+    files are not working. "jabberwork.json" is returning the html for the
+    word-o-matic page, and "prescription-drugs.json" is returning a 404.
+  </p>
+  <p>
+    Even stranger, I fired up firebase&#39;s local emulator and everything works
+    fine locally. I deployed a second time to firebase without changing anything
+    and... success!
+  </p>
+  <p>
+    The last, and most suspicious thing is that the current site says it
+    contains almost 20 thousand files, while the site I just previewed contains
+    only 370 files. I suspect this is because I used to allow folks to upload
+    and save custom content in the word-o-matic, and I maintained that old
+    content even after I disabled that functionality. I have no straightforward
+    way of recovering that content at the moment, but it may simply be time to
+    say goodbye to it. It is possible that that content continues to reside on
+    the hard disk of another computer that is not currently hooked up, but that
+    is a problem for another day.
+  </p>
 </body>

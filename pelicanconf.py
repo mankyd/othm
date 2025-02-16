@@ -26,7 +26,7 @@ OUTPUT_PATH = 'output/'
 ARTICLE_PATHS = ['articles']
 PATH = 'content/'
 SITENAME = 'Oh! The Huge Manatee!'
-SITEURL = 'http://ohthehugemanatee.net'
+SITEURL = 'https://ohthehugemanatee.net'
 SUMMARY_MAX_LENGTH = None
 THEME = 'themes/othm'
 
@@ -66,7 +66,7 @@ SOCIAL = (
 DEFAULT_PAGINATION = False
 
 # Uncomment following line if you want document-relative URLs when developing
-# RELATIVE_URLS = True
+RELATIVE_URLS = True
 
 HTMLMIN_SETTINGS = {
     'remove_empty_space': True,

@@ -1,0 +1,14 @@
+{
+  "hosting": {
+    "public": "output",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites":[ {
+      "source": "/word-o-matic/*/",
+      "destination": "/word-o-matic/index.html"
+    } ]
+  }
+}
