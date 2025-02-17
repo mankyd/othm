@@ -21,6 +21,10 @@ DELETE_OUTPUT_DIRECTORY = False
 
 DEFAULT_LANG = 'en'
 
+IGNORE_FILES = [
+    "**/.*",
+    "**/.#*",
+]
 MARKUP = ('rst', 'md', 'html')
 OUTPUT_PATH = 'output/'
 ARTICLE_PATHS = ['articles']
